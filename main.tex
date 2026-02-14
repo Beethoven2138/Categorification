@@ -88,20 +88,26 @@ Let $\mathbf{C}$ be a category and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be ob
 If we let $Z=Y'$ and $f_\alpha=\iota_\alpha'$, there exists a unique morphism $h:Y\to Y'$ such that $\iota_\alpha'=h\circ\iota_\alpha\forall\alpha\in\mathcal{A}$. Similarly, there exists a unique morphism $h':Y'\to Y$ such that $\iota_\alpha=h'\circ\iota_\alpha'\forall\alpha\in\mathcal{A}$. Hence, we have $\iota_\alpha=(h'\circ h)\circ\iota_\alpha\forall\alpha\in\mathcal{A}$. If we then let $Z=Y$ and $f_\alpha=\iota_\alpha$, we see that both $h'\circ h$ and $\text{id}_Y$ are candidates for $F$. Hence, by uniqueness, $h'\circ h=\text{id}_Y$. Similarly, $h\circ h'=\text{id}_{Y'}$. Hence, $h$ is an isomorphism.
 \end{proof}
 \section{Sets}
+\begin{definition}
+Let $X$ be a set, and let $\sim$ be an equivalence relation on $X$. We say that a function $f:X\to Y$ is $\sim$-invariant if $x_0\sim x_1\implies f(x_0)=f(x_1)\forall x_0,x_1\in X$.
+\end{definition}
 \begin{definition}[Universal property of the quotient set]
-Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. A pair $(X',\pi:X\to X')$ is a quotient of $X$  by $\sim$ if given any $f:X\to Y$ such that $x_0\sim x_1\implies f(x_0)=f(x_1)\forall x_0,x_1\in X$, then there exists a unique $\overline{f}:X'\to Y$ such that $f=\overline{f}\circ \pi$.
+Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. A pair $(X',\pi:X\to X')$ is a quotient of $X$  by $\sim$ if $\pi$ is $\sim$-invariant, and given any $\sim$-invariant function $f:X\to Y$, there exists a unique $\overline{f}:X'\to Y$ such that $f=\overline{f}\circ \pi$.
 \end{definition}
 \begin{theorem}
 The canonical projection $\pi:X\to X/\sim:x\mapsto[x]$ satisfies the universal property of the quotient set.
 \end{theorem}
 \begin{proof}
-We define $\overline{f}:X/\sim\to Y$ by $\overline{f}(\pi(x))=f(x)$. This is well-defined, since if $x_0\sim x_1$, then $\overline{f}(\pi(x_0))=f(x_0)=f(x_1)=\overline{f}(\pi(x_1))$, and hence $\overline{f}$ is independent of representatives. Uniqueness is also evident from the definition of $\pi$.
+First note that $\pi$ is clearly $\sim$-invariant. We define $\overline{f}:X/\sim\to Y$ by $\overline{f}(\pi(x))=f(x)$. This is well-defined, since if $x_0\sim x_1$, then $\overline{f}(\pi(x_0))=f(x_0)=f(x_1)=\overline{f}(\pi(x_1))$, and hence $\overline{f}$ is independent of representatives. Uniqueness is also evident from the definition of $\pi$.
 \end{proof}
 \begin{theorem}
 Let $X$ be a set with an equivalence relation $\sim$. Let $(W,\pi_W)$ and $(Z,\pi_Z)$ be two pairs of sets, along with maps $\pi_W:X\to W$ and $\pi_Z:X\to Z$ such that both pairs satisfy the universal property of the quotient set. Then there exists a unique bijection $h:W\to Z$ such that $\pi_Z=h\circ\pi_W$.
 \end{theorem}
 \begin{proof}
-Let $x_0\sim x_1$. Then $\pi_Z(x_0)=\pi_Z(x_1)$, by the definition of a quotient map. Hence, by the universal property of the quotient set, there exists a unique $h:W\to Z$ such that $\pi_Z=h\circ\pi_W$. Similarly, there exists a $g:Z\to W$ such that $\pi_W=g\circ\pi_Z$. Hence, $\pi_Z=(h\circ g)\circ\pi_Z$. However, we also have that $\pi_Z=\text{id}_Z\circ\pi_Z$, and hence, by uniqueness, $h\circ g=\text{id}_Z$. Similarly, $g\circ h=\text{id}_W$, implying that $h$ is a bijection, as required.
+Let $(X',\pi:X\to X')$ be a quotient of $X$ by $\sim$. Let $R\subseteq X\times X$ be defined as $R=\{(x_0,x_1):x_0\sim x_1\}$. Then define $\text{pr}_1:R\to X:(x_0,x_1)\mapsto x_0$ and $\text{pr}_2:R\to X:(x_0,x_1)\mapsto x_1$. We then note that $\sim$-invariance of a function $g:X\to Y$ is equivalent to the property that $g\circ\text{pr}_1=g\circ\text{pr}_2$. We then have that $\pi\circ\text{pr}_1=\pi\circ\text{pr}_2$, and given any $f:X\to Y$ such that $f\circ\text{pr}_1=f\circ\text{pr}_2$, there exists a unique $\overline{f}:X'\to Y$ such that $f=\overline{f}\circ\pi$.\[\begin{tikzcd}
+R \arrow[r, shift left, "\text{pr}_1"] \arrow[r, shift right, swap, "\text{pr}_2"] & X \arrow[r, "\pi"] \arrow[dr, swap, "\forall f"] & X' \arrow[d, "\exists! \overline{f}"] \\
+& & Y
+\end{tikzcd}\] This is identical to saying that $\pi$ is a coequalizer of $\text{pr}_1$ and $\text{pr}_2$ in the category of sets, and hence, $\pi$ is unique up to unique bijection. In particular, there exists a unique bijection $h:W\to Z$ such that $\pi_Z=h\circ\pi_W$.
 \end{proof}
 \section{Groups}
 \subsection{Quotient Groups}
