@@ -62,8 +62,9 @@ Since $q$ is a coequalizer and $q'\circ f_1=q'\circ f_2$, there exists a unique 
 \begin{definition}
 Let $\mathbf{C}$ be a category, and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of objects of $\mathbf{C}$. An object $X$ equipped with morphisms $\text{pr}_\alpha:X\to X_\alpha$ is a product of $(X_\alpha)_{\alpha\in\mathcal{A}}$ if for any object $Z$ and morphisms $f_\alpha:Z\to X_\alpha$, there exists a unique morphism $F:Z\to X$ such that $\text{pr}_\alpha\circ F=f_\alpha\forall\alpha\in\mathcal{A}$.\[
 \begin{tikzcd}
-& Z \arrow[dl, bend right, "f_1"'] \arrow[dr, bend left, "f_2"] \arrow[d, "\exists! F"] & \\
-X_1 & X \arrow[l, "\text{pr}_1"] \arrow[r, swap, "\text{pr}_2"] & X_2
+& Z \arrow[ldd, "f_1"', bend right] \arrow[rdd, "f_2", bend left] \arrow[d, "\exists! F"] & \\
+& X \arrow[ld, "\mathrm{pr}_1"] \arrow[rd, "\mathrm{pr}_2"'] & \\
+X_1 & & X_2
 \end{tikzcd}
 \]
 \end{definition}
@@ -74,7 +75,7 @@ Let $\mathbf{C}$ be a category, and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be a
 If we let $Z=X'$ and $f_\alpha=\text{pr}_\alpha'$, then there exists a unique morphism $h':X'\to X$ such that $\text{pr}_\alpha'=\text{pr}_\alpha\circ h'$. Similarly, there exists a unique morphism $h:X\to X'$ such that $\text{pr}_\alpha=\text{pr}_\alpha'\circ h$. From this we obtain $\text{pr}_\alpha=\text{pr}_\alpha\circ(h'\circ h)$. Then, if we let $Z=X$ and $f_\alpha=\text{pr}_\alpha$, we see that both $h'\circ h$ and $\text{id}_X$ are candidates for $F$. Hence, by uniqueness, $h'\circ h=\text{id}_X$. Similarly, $h\circ h'=\text{id}_{X'}$. Hence, $h$ is an isomorphism.
 \end{proof}
 \begin{definition}
-Let $\mathbf{C}$ be a category and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of objects of $\mathbf{C}$. An object $Y$ along with morphisms $\iota_\alpha:X_\alpha\to Y$ is a coproduct of $(X_\alpha)_{\alpha\in\mathcal{A}}$ if for any object $Z$ with morphisms $f_\alpha:X_\alpha\to Z$, there exists a unique morphism $F:Y\to Z$ such that for all $\alpha\in\mathcal{A}$, we have $F\circ\iota_\alpha=f_\alpha$.\[\begin{tikzcd}[column sep=small, row sep=large]
+Let $\mathbf{C}$ be a category and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of objects of $\mathbf{C}$. An object $Y$ along with morphisms $\iota_\alpha:X_\alpha\to Y$ is a coproduct of $(X_\alpha)_{\alpha\in\mathcal{A}}$ if for any object $Z$ with morphisms $f_\alpha:X_\alpha\to Z$, there exists a unique morphism $F:Y\to Z$ such that for all $\alpha\in\mathcal{A}$, we have $F\circ\iota_\alpha=f_\alpha$.\[\begin{tikzcd}
 X_1 \arrow[dr, "\iota_1"] \arrow[ddr, bend right, "f_1"'] & & X_2 \arrow[dl, "\iota_2"'] \arrow[ddl, bend left, "f_2"] \\
 & Y \arrow[d, "\exists! F"] & \\
 & Z & 
