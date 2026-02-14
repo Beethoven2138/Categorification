@@ -34,7 +34,7 @@
 This article will give categorical definitions of the standard objects from algebra, by way of defining universal properties which determine the objects up to unique isomorphism. For a given object $A$ of interest, the general procedure will be to first define an object $B$ as an object which satisfies a specific universal property, then show that $A$ satisfies that universal property, and then show that all pairs of objects $B$ which satisfy the universal property are related by a unique isomorphism. This will then demonstrate that the universal property determines $A$ up to unique isomorphism. We will then apply these universal properties to prove additional useful categorical results, such as the functoriality of the abelianization of a group.
 \section{Preliminary Categorical Constructions}
 \begin{definition}
-Let $\mathbf{C}$ be a category and let $f_1,f_2:X\to Y\in\text{Hom}_\mathbf{C}(X,Y)$. Then a morphism $j:W\to X\in\text{Hom}_\textbf{C}(W,X)$ is an equaliser of $f_1$ and $f_2$ if $f_1\circ j=f_2\circ j$ and given any morphism $g:T\to X$ with $f_1\circ g=f_2\circ g$, there is a unique morphism $h:T\to W$ such that $j\circ h=g$.\[
+Let $\mathbf{C}$ be a category and let $f_1,f_2:X\to Y\in\text{Hom}_\mathbf{C}(X,Y)$. Then a morphism $j:W\to X\in\text{Hom}_\mathbf{C}(W,X)$ is an equaliser of $f_1$ and $f_2$ if $f_1\circ j=f_2\circ j$ and given any morphism $g:T\to X$ with $f_1\circ g=f_2\circ g$, there is a unique morphism $h:T\to W$ such that $j\circ h=g$.\[
 \begin{tikzcd}
 W \arrow[r, "j"] & X \arrow[r, shift left, "f_1"] \arrow[r, shift right, swap, "f_2"] & Y \\
 T \arrow[u, "\exists! h"] \arrow[ur, swap, "\forall g"] & & 
@@ -82,7 +82,7 @@ X_1 \arrow[dr, "\iota_1"] \arrow[ddr, bend right, "f_1"'] & & X_2 \arrow[dl, "\i
 \end{tikzcd}\]
 \end{definition}
 \begin{theorem}
-Let $\mathbf{C}$ be a category and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be objects of $\mathcal{C}$. Suppose that both $(Y,(\iota_\alpha)_{\alpha\in\mathcal{A}})$ and $(Y',(\iota'_\alpha)_{\alpha\in\mathcal{A}})$ are coproducts of $(X_\alpha)_{\alpha\in\mathcal{A}}$. Then there exists a unique isomorphism $h:Y\to Y'$ such that $h\circ\iota_\alpha=\iota'_\alpha\forall\alpha\in\mathcal{A}$.
+Let $\mathbf{C}$ be a category and let $(X_\alpha)_{\alpha\in\mathcal{A}}$ be objects of $\mathbf{C}$. Suppose that both $(Y,(\iota_\alpha)_{\alpha\in\mathcal{A}})$ and $(Y',(\iota'_\alpha)_{\alpha\in\mathcal{A}})$ are coproducts of $(X_\alpha)_{\alpha\in\mathcal{A}}$. Then there exists a unique isomorphism $h:Y\to Y'$ such that $h\circ\iota_\alpha=\iota'_\alpha\forall\alpha\in\mathcal{A}$.
 \end{theorem}
 \begin{proof}
 If we let $Z=Y'$ and $f_\alpha=\iota_\alpha'$, there exists a unique morphism $h:Y\to Y'$ such that $\iota_\alpha'=h\circ\iota_\alpha\forall\alpha\in\mathcal{A}$. Similarly, there exists a unique morphism $h':Y'\to Y$ such that $\iota_\alpha=h'\circ\iota_\alpha'\forall\alpha\in\mathcal{A}$. Hence, we have $\iota_\alpha=(h'\circ h)\circ\iota_\alpha\forall\alpha\in\mathcal{A}$. If we then let $Z=Y$ and $f_\alpha=\iota_\alpha$, we see that both $h'\circ h$ and $\text{id}_Y$ are candidates for $F$. Hence, by uniqueness, $h'\circ h=\text{id}_Y$. Similarly, $h\circ h'=\text{id}_{Y'}$. Hence, $h$ is an isomorphism.
@@ -138,6 +138,7 @@ N \arrow[r, shift left, "\iota"] \arrow[r, shift right, swap, "z"] & G \arrow[r,
 & & H
 \end{tikzcd}\]This is exactly equivalent to saying that $\pi$ is a coequalizer in the category of groups. Hence, the result follows by uniqueness.
 \end{proof}
+\subsection{Products}
 
 \subsection{Abelianization}
 \begin{definition}[Universal property of the abelianization of a group]
