@@ -128,6 +128,22 @@ Let $(S_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of sets and let
 \begin{proof}
 The product of sets is the product in the category of sets, and so uniqueness follows.
 \end{proof}
+\subsection{Disjoint Unions}
+\begin{definition}[Universal property of disjoint unions]
+Let $(S_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of sets. A set $S$ with maps $\iota_\alpha:S_\alpha\to S$ is said to be the disjoint union of $(S_\alpha)_{\alpha\in\mathcal{A}}$, written $S=\coprod_{\alpha\in\mathcal{A}}S_\alpha$ if for any set $K$ with maps $f_\alpha:S_\alpha\to K$, there exists a unique map $F:S\to K$ such that $F\circ\iota_\alpha=f_\alpha\forall\alpha\in\mathcal{A}$.
+\end{definition}
+\begin{theorem}
+Any collection $(S_\alpha)_{\alpha\in\mathcal{A}}$ of sets has a disjoint union $\coprod_{\alpha\in\mathcal{A}}S_\alpha$.
+\end{theorem}
+\begin{proof}
+We can set $\coprod_{\alpha\in\mathcal{A}}S_\alpha=\{(x,\alpha)\in S_\alpha\times\mathcal{A}\}$, and we can define inclusion maps $\iota_\alpha:S_\alpha\to \coprod_{\alpha\in\mathcal{A}}S_\alpha:x\mapsto(x,\alpha)$. Then, if we have another set $K$ and maps $f_\alpha:S_\alpha\to K$, there exists a unique map $F:\coprod_{\alpha\in\mathcal{A}}S_\alpha\to K$ such that $F\circ\iota_\alpha=f_\alpha\forall\alpha\in\mathcal{A}$, namely by setting $F((x,\alpha))=f_\alpha(x)$.
+\end{proof}
+\begin{theorem}
+Let $(S_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of sets, and let $(S,(\iota_\alpha)_{\alpha\in\mathcal{A}})$ and $(S',(\iota'_\alpha)_{\alpha\in\mathcal{A}})$ be two disjoint unions of $(S_\alpha)_{\alpha\in\mathcal{A}}$. Then there exists a unique bijection $h:S\to S'$ such that $h\circ\iota_\alpha=\iota_\alpha'\forall\alpha\in\mathcal{A}$.
+\end{theorem}
+\begin{proof}
+The disjoint union is the coproduct in the category of sets, and so uniqueness up to unique bijection follows.
+\end{proof}
 \section{Groups}
 \subsection{Quotient Groups}
 \begin{definition}[Universal property of the quotient group]
