@@ -176,11 +176,20 @@ N \arrow[r, shift left, "\iota"] \arrow[r, shift right, swap, "z"] & G \arrow[r,
 \end{proof}
 \subsection{Products}
 \begin{definition}[Universal property of the direct product of groups]
-Let $(G_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of groups. A group $G$ equipped with homomorphisms $\text{pr}_\alpha:G\to G_\alpha$ is a product of $(G_\alpha)_{\alpha\in\mathcal{A}}$ if for any group $H$ and homomorphisms $\phi_\alpha:H\to G_\alpha$, there exists a unique homomorphism $\Psi:H\to G$ such that $\text{pr}_\alpha\circ\Psi=\phi_\alpha\forall\alpha\in\mathcal{A}$.
+Let $(G_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of groups. A group $G$ equipped with homomorphisms $\text{pr}_\alpha:G\to G_\alpha$ is a direct product of $(G_\alpha)_{\alpha\in\mathcal{A}}$ if for any group $H$ and homomorphisms $\phi_\alpha:H\to G_\alpha$, there exists a unique homomorphism $\Psi:H\to G$ such that $\text{pr}_\alpha\circ\Psi=\phi_\alpha\forall\alpha\in\mathcal{A}$.
 \end{definition}
 \begin{theorem}
-Let 
+Let $(G_\alpha)_{\alpha\in\mathcal{A}}$ be an indexed collection of groups. Let \[\prod_{\alpha\in\mathcal{A}}G_\alpha=\{g:\mathcal{A}\to\bigcup_{\alpha\in\mathcal  A}G_\alpha\mid \forall\alpha\in\mathcal{A}:g(\alpha)\in G_\alpha\}\] be a group equipped with homomorphisms $\text{pr}_\alpha:\prod_{\alpha\in\mathcal{A}}G_\alpha\to G_\alpha:g\mapsto g(\alpha)$, and with multiplication given by $(g\cdot h)(\alpha)=g(\alpha)h(\alpha)$. Then $\prod_{\alpha\in\mathcal{A}}G_\alpha$ is a direct product of $(G_\alpha)_{\alpha\in\mathcal{A}}$.
 \end{theorem}
+\begin{proof}
+Let $H$ be another group and let $f_\beta:H\to G_\beta$ be a collection of homomorphisms. There is then a unique homomorphism $F:H\to\prod_{\alpha\in\mathcal{A}}G_\alpha$ with $\text{pr}_\beta\circ F=f_\beta$, namely the one given by $F(h)(\alpha)=f_\alpha(h)\forall h\in H,\alpha\in\mathcal{A}$.
+\end{proof}
+\begin{theorem}
+Direct products of groups are unique up to unique isomorphism.
+\end{theorem}
+\begin{proof}
+Direct products are products in the category of groups, and so uniqueness up to unique isomorphism follows.
+\end{proof}
 \subsection{Abelianization}
 \begin{definition}[Universal property of the abelianization of a group]
 Let $G$ be a group. An abelianization of $G$ is a pair $(G^\text{ab},\pi)$, where $G^\text{ab}$ is an abelian group and $\pi:G\to G^\text{ab}$ is a group homomorphism, such that given any abelian group $H$ and group homomorphism $\phi:G\to H$, there exists a unique group homomorphism $\phi^\text{ab}:G^\text{ab}\to H$ such that $\phi^\text{ab}\circ\pi=\phi$.
